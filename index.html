@@ -12,821 +12,136 @@
   --naranja: #e8941a;
   --naranja-claro: #f5b84a;
   --gris: #6e6860;
-  --gris-claro: #c8c0b4;
   --blanco: #ffffff;
-  --card-bg: #ffffff;
 }
-
 * { margin: 0; padding: 0; box-sizing: border-box; }
-
 html { scroll-behavior: smooth; }
-
-body {
-  background: var(--crema);
-  color: var(--negro);
-  font-family: 'Outfit', sans-serif;
-  font-weight: 300;
-  overflow-x: hidden;
-}
+body { background: var(--crema); color: var(--negro); font-family: 'Outfit', sans-serif; font-weight: 300; overflow-x: hidden; }
 
 /* NAV */
-nav {
-  position: fixed;
-  top: 0; left: 0; right: 0;
-  z-index: 100;
-  padding: 20px 60px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background: rgba(247,243,236,0.92);
-  backdrop-filter: blur(12px);
-  border-bottom: 1px solid rgba(0,0,0,0.06);
-}
-
-.nav-logo {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 22px;
-  font-weight: 700;
-  color: var(--negro);
-  text-decoration: none;
-  letter-spacing: -0.3px;
-}
-
+nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 20px 60px; display: flex; justify-content: space-between; align-items: center; background: rgba(247,243,236,0.92); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(0,0,0,0.06); }
+.nav-logo { font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 700; color: var(--negro); text-decoration: none; }
 .nav-logo span { color: var(--naranja); }
-
-.nav-links {
-  display: flex;
-  gap: 36px;
-  align-items: center;
-  list-style: none;
-}
-
-.nav-links a {
-  text-decoration: none;
-  color: var(--gris);
-  font-size: 14px;
-  font-weight: 400;
-  transition: color 0.2s;
-}
-
+.nav-links { display: flex; gap: 36px; align-items: center; list-style: none; }
+.nav-links a { text-decoration: none; color: var(--gris); font-size: 14px; font-weight: 400; transition: color 0.2s; }
 .nav-links a:hover { color: var(--negro); }
-
-.nav-cta {
-  background: var(--negro);
-  color: var(--blanco) !important;
-  padding: 10px 22px;
-  border-radius: 3px;
-  font-weight: 500 !important;
-  font-size: 13px !important;
-  transition: background 0.2s !important;
-}
-
+.nav-cta { background: var(--negro); color: var(--blanco) !important; padding: 10px 22px; border-radius: 3px; font-weight: 500 !important; font-size: 13px !important; }
 .nav-cta:hover { background: var(--naranja) !important; color: var(--negro) !important; }
 
 /* HERO */
-.hero {
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  padding: 120px 60px 80px;
-  position: relative;
-  overflow: hidden;
-}
-
-.hero::before {
-  content: '₿';
-  position: absolute;
-  right: -80px;
-  top: 50%;
-  transform: translateY(-50%);
-  font-size: 600px;
-  color: rgba(232,148,26,0.06);
-  font-family: 'Cormorant Garamond', serif;
-  line-height: 1;
-  pointer-events: none;
-  animation: floatBTC 8s ease-in-out infinite;
-}
-
-@keyframes floatBTC {
-  0%, 100% { transform: translateY(-50%) rotate(-5deg); }
-  50% { transform: translateY(-52%) rotate(-3deg); }
-}
-
-.hero-content {
-  max-width: 700px;
-  animation: fadeUp 0.8s ease both;
-}
-
-@keyframes fadeUp {
-  from { opacity: 0; transform: translateY(30px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-.hero-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  background: rgba(232,148,26,0.12);
-  border: 1px solid rgba(232,148,26,0.3);
-  color: var(--naranja);
-  font-size: 12px;
-  font-weight: 500;
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
-  padding: 6px 16px;
-  border-radius: 20px;
-  margin-bottom: 28px;
-}
-
-.hero-badge::before {
-  content: '';
-  width: 6px; height: 6px;
-  background: var(--naranja);
-  border-radius: 50%;
-  animation: pulse 2s infinite;
-}
-
-@keyframes pulse {
-  0%, 100% { opacity: 1; transform: scale(1); }
-  50% { opacity: 0.5; transform: scale(1.3); }
-}
-
-h1 {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(52px, 7vw, 88px);
-  font-weight: 700;
-  line-height: 1.0;
-  color: var(--negro);
-  letter-spacing: -2px;
-  margin-bottom: 24px;
-}
-
-h1 em {
-  color: var(--naranja);
-  font-style: normal;
-}
-
-.hero-sub {
-  font-size: 18px;
-  color: var(--gris);
-  line-height: 1.7;
-  max-width: 520px;
-  margin-bottom: 44px;
-  font-weight: 300;
-}
-
-.hero-actions {
-  display: flex;
-  gap: 16px;
-  align-items: center;
-  flex-wrap: wrap;
-}
-
-.btn-primary {
-  background: var(--negro);
-  color: var(--blanco);
-  padding: 16px 32px;
-  border-radius: 3px;
-  text-decoration: none;
-  font-size: 15px;
-  font-weight: 500;
-  transition: all 0.2s;
-  display: inline-block;
-}
-
-.btn-primary:hover {
-  background: var(--naranja);
-  color: var(--negro);
-  transform: translateY(-2px);
-}
-
-.btn-secondary {
-  color: var(--negro);
-  font-size: 15px;
-  font-weight: 400;
-  text-decoration: none;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  transition: gap 0.2s;
-}
-
-.btn-secondary:hover { gap: 12px; }
+.hero { min-height: 100vh; display: flex; align-items: center; padding: 120px 60px 80px; position: relative; overflow: hidden; }
+.hero::before { content: '₿'; position: absolute; right: -80px; top: 50%; transform: translateY(-50%); font-size: 600px; color: rgba(232,148,26,0.06); font-family: 'Cormorant Garamond', serif; line-height: 1; pointer-events: none; }
+.hero-content { max-width: 700px; }
+.hero-badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(232,148,26,0.12); border: 1px solid rgba(232,148,26,0.3); color: var(--naranja); font-size: 12px; font-weight: 500; letter-spacing: 1.5px; text-transform: uppercase; padding: 6px 16px; border-radius: 20px; margin-bottom: 28px; }
+.hero-badge::before { content: ''; width: 6px; height: 6px; background: var(--naranja); border-radius: 50%; }
+h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(52px, 7vw, 88px); font-weight: 700; line-height: 1.0; color: var(--negro); letter-spacing: -2px; margin-bottom: 24px; }
+h1 em { color: var(--naranja); font-style: normal; }
+.hero-sub { font-size: 18px; color: var(--gris); line-height: 1.7; max-width: 520px; margin-bottom: 44px; }
+.hero-actions { display: flex; gap: 16px; align-items: center; flex-wrap: wrap; }
+.btn-primary { background: var(--negro); color: var(--blanco); padding: 16px 32px; border-radius: 3px; text-decoration: none; font-size: 15px; font-weight: 500; transition: all 0.2s; display: inline-block; }
+.btn-primary:hover { background: var(--naranja); color: var(--negro); }
+.btn-secondary { color: var(--negro); font-size: 15px; text-decoration: none; display: flex; align-items: center; gap: 8px; }
 .btn-secondary::after { content: '→'; }
-
-.hero-stats {
-  display: flex;
-  gap: 48px;
-  margin-top: 64px;
-  padding-top: 40px;
-  border-top: 1px solid rgba(0,0,0,0.08);
-}
-
-.stat-item {}
-.stat-num {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 36px;
-  font-weight: 700;
-  color: var(--negro);
-  line-height: 1;
-}
+.hero-stats { display: flex; gap: 48px; margin-top: 64px; padding-top: 40px; border-top: 1px solid rgba(0,0,0,0.08); }
+.stat-num { font-family: 'Cormorant Garamond', serif; font-size: 36px; font-weight: 700; color: var(--negro); line-height: 1; }
 .stat-num span { color: var(--naranja); }
-.stat-label {
-  font-size: 12px;
-  color: var(--gris);
-  margin-top: 4px;
-  letter-spacing: 0.5px;
-}
+.stat-label { font-size: 12px; color: var(--gris); margin-top: 4px; }
 
-/* SECCIÓN GENÉRICA */
-section {
-  padding: 100px 60px;
-}
+/* SECCIONES */
+section { padding: 100px 60px; }
+.section-label { font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: var(--naranja); font-weight: 500; margin-bottom: 16px; }
+h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(36px, 4vw, 54px); font-weight: 700; line-height: 1.1; letter-spacing: -1px; color: var(--negro); margin-bottom: 20px; }
+.section-desc { font-size: 16px; color: var(--gris); line-height: 1.7; max-width: 560px; }
 
-.section-label {
-  font-size: 11px;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  color: var(--naranja);
-  font-weight: 500;
-  margin-bottom: 16px;
-}
-
-h2 {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(36px, 4vw, 54px);
-  font-weight: 700;
-  line-height: 1.1;
-  letter-spacing: -1px;
-  color: var(--negro);
-  margin-bottom: 20px;
-}
-
-.section-desc {
-  font-size: 16px;
-  color: var(--gris);
-  line-height: 1.7;
-  max-width: 560px;
-}
-
-/* QUÉ ES */
-.about {
-  background: var(--negro);
-  color: var(--blanco);
-}
-
+/* QUE ES */
+.about { background: var(--negro); color: var(--blanco); }
 .about h2 { color: var(--blanco); }
 .about .section-label { color: var(--naranja-claro); }
-
-.about-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 80px;
-  align-items: center;
-  margin-top: 60px;
-}
-
+.about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; margin-top: 60px; }
 .about-text .section-desc { color: rgba(255,255,255,0.6); max-width: 480px; }
+.about-cards { display: flex; flex-direction: column; gap: 16px; }
+.about-card { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.08); border-radius: 6px; padding: 24px; display: flex; gap: 16px; align-items: flex-start; }
+.about-card-icon { font-size: 24px; flex-shrink: 0; }
+.about-card h4 { font-size: 15px; font-weight: 500; color: var(--blanco); margin-bottom: 6px; }
+.about-card p { font-size: 13px; color: rgba(255,255,255,0.5); line-height: 1.6; }
 
-.about-cards {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-}
-
-.about-card {
-  background: rgba(255,255,255,0.05);
-  border: 1px solid rgba(255,255,255,0.08);
-  border-radius: 6px;
-  padding: 24px;
-  display: flex;
-  gap: 16px;
-  align-items: flex-start;
-  transition: background 0.2s;
-}
-
-.about-card:hover { background: rgba(255,255,255,0.08); }
-
-.about-card-icon {
-  font-size: 24px;
-  flex-shrink: 0;
-  margin-top: 2px;
-}
-
-.about-card h4 {
-  font-size: 15px;
-  font-weight: 500;
-  color: var(--blanco);
-  margin-bottom: 6px;
-}
-
-.about-card p {
-  font-size: 13px;
-  color: rgba(255,255,255,0.5);
-  line-height: 1.6;
-}
-
-/* CÓMO FUNCIONA */
-.how {
-  background: var(--crema);
-}
-
-.how-header {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 60px;
-  align-items: end;
-  margin-bottom: 70px;
-}
-
-.steps {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 0;
-  position: relative;
-}
-
-.steps::before {
-  content: '';
-  position: absolute;
-  top: 28px;
-  left: 28px;
-  right: 28px;
-  height: 1px;
-  background: linear-gradient(90deg, var(--naranja), var(--naranja-claro), var(--naranja));
-  z-index: 0;
-}
-
-.step {
-  position: relative;
-  z-index: 1;
-  text-align: center;
-  padding: 0 12px;
-}
-
-.step-circle {
-  width: 56px;
-  height: 56px;
-  background: var(--negro);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0 auto 20px;
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 20px;
-  font-weight: 700;
-  color: var(--naranja);
-  border: 3px solid var(--naranja);
-  transition: all 0.2s;
-}
-
-.step:hover .step-circle {
-  background: var(--naranja);
-  color: var(--negro);
-}
-
-.step h4 {
-  font-size: 13px;
-  font-weight: 500;
-  color: var(--negro);
-  margin-bottom: 8px;
-  line-height: 1.3;
-}
-
-.step p {
-  font-size: 11.5px;
-  color: var(--gris);
-  line-height: 1.5;
-}
+/* COMO FUNCIONA */
+.how { background: var(--crema); }
+.how-header { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: end; margin-bottom: 70px; }
+.steps { display: grid; grid-template-columns: repeat(5, 1fr); gap: 0; position: relative; }
+.steps::before { content: ''; position: absolute; top: 28px; left: 28px; right: 28px; height: 1px; background: linear-gradient(90deg, var(--naranja), var(--naranja-claro), var(--naranja)); z-index: 0; }
+.step { position: relative; z-index: 1; text-align: center; padding: 0 12px; }
+.step-circle { width: 56px; height: 56px; background: var(--negro); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; font-family: 'Cormorant Garamond', serif; font-size: 20px; font-weight: 700; color: var(--naranja); border: 3px solid var(--naranja); }
+.step h4 { font-size: 13px; font-weight: 500; color: var(--negro); margin-bottom: 8px; line-height: 1.3; }
+.step p { font-size: 11.5px; color: var(--gris); line-height: 1.5; }
 
 /* BENEFICIOS */
-.benefits {
-  background: var(--blanco);
-}
-
-.benefits-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 32px;
-  margin-top: 60px;
-}
-
-.benefit-card {
-  padding: 36px 30px;
-  border: 1px solid rgba(0,0,0,0.06);
-  border-radius: 6px;
-  transition: all 0.25s;
-  position: relative;
-  overflow: hidden;
-}
-
-.benefit-card::before {
-  content: '';
-  position: absolute;
-  top: 0; left: 0; right: 0;
-  height: 3px;
-  background: var(--naranja);
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: transform 0.3s;
-}
-
-.benefit-card:hover {
-  border-color: rgba(232,148,26,0.2);
-  box-shadow: 0 8px 40px rgba(0,0,0,0.08);
-  transform: translateY(-4px);
-}
-
+.benefits { background: var(--blanco); }
+.benefits-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; margin-top: 60px; }
+.benefit-card { padding: 36px 30px; border: 1px solid rgba(0,0,0,0.06); border-radius: 6px; transition: all 0.25s; position: relative; overflow: hidden; }
+.benefit-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: var(--naranja); transform: scaleX(0); transform-origin: left; transition: transform 0.3s; }
+.benefit-card:hover { box-shadow: 0 8px 40px rgba(0,0,0,0.08); transform: translateY(-4px); }
 .benefit-card:hover::before { transform: scaleX(1); }
-
 .benefit-icon { font-size: 32px; margin-bottom: 20px; display: block; }
-
-.benefit-card h3 {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 22px;
-  font-weight: 700;
-  margin-bottom: 12px;
-  color: var(--negro);
-}
-
-.benefit-card p {
-  font-size: 14px;
-  color: var(--gris);
-  line-height: 1.7;
-}
+.benefit-card h3 { font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 700; margin-bottom: 12px; }
+.benefit-card p { font-size: 14px; color: var(--gris); line-height: 1.7; }
 
 /* PLANES */
-.plans {
-  background: var(--crema);
-}
-
-.plans-header {
-  text-align: center;
-  margin-bottom: 60px;
-}
-
-.plans-header .section-desc {
-  margin: 0 auto;
-  text-align: center;
-}
-
-.plans-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
-  max-width: 1000px;
-  margin: 0 auto;
-}
-
-.plan-card {
-  background: var(--blanco);
-  border-radius: 8px;
-  padding: 40px 32px;
-  border: 1px solid rgba(0,0,0,0.08);
-  transition: all 0.25s;
-  position: relative;
-}
-
-.plan-card:hover {
-  box-shadow: 0 12px 48px rgba(0,0,0,0.1);
-  transform: translateY(-6px);
-}
-
-.plan-card.featured {
-  background: var(--negro);
-  border-color: var(--negro);
-}
-
-.plan-card.featured h3,
-.plan-card.featured .plan-desc,
-.plan-card.featured .plan-feature { color: rgba(255,255,255,0.9) !important; }
-
-.plan-card.featured .plan-feature { color: rgba(255,255,255,0.6) !important; }
-
-.featured-badge {
-  position: absolute;
-  top: -12px;
-  left: 50%;
-  transform: translateX(-50%);
-  background: var(--naranja);
-  color: var(--negro);
-  font-size: 10px;
-  font-weight: 600;
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
-  padding: 4px 16px;
-  border-radius: 20px;
-  white-space: nowrap;
-}
-
-.plan-icon {
-  font-size: 36px;
-  margin-bottom: 20px;
-  display: block;
-}
-
-.plan-card h3 {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 28px;
-  font-weight: 700;
-  color: var(--negro);
-  margin-bottom: 12px;
-}
-
-.plan-desc {
-  font-size: 13px;
-  color: var(--gris);
-  line-height: 1.6;
-  margin-bottom: 28px;
-  min-height: 60px;
-}
-
-.plan-features {
-  list-style: none;
-  margin-bottom: 32px;
-}
-
-.plan-feature {
-  font-size: 13px;
-  color: var(--gris);
-  padding: 8px 0;
-  border-bottom: 1px solid rgba(0,0,0,0.05);
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.plan-card.featured .plan-feature {
-  border-bottom-color: rgba(255,255,255,0.08);
-}
-
-.plan-feature::before {
-  content: '✓';
-  color: var(--naranja);
-  font-weight: 600;
-  flex-shrink: 0;
-}
-
-.plan-cta {
-  display: block;
-  text-align: center;
-  padding: 14px;
-  border-radius: 4px;
-  font-size: 14px;
-  font-weight: 500;
-  text-decoration: none;
-  transition: all 0.2s;
-  border: 1.5px solid var(--negro);
-  color: var(--negro);
-}
-
-.plan-cta:hover {
-  background: var(--negro);
-  color: var(--blanco);
-}
-
-.plan-card.featured .plan-cta {
-  background: var(--naranja);
-  border-color: var(--naranja);
-  color: var(--negro);
-}
-
-.plan-card.featured .plan-cta:hover {
-  background: var(--naranja-claro);
-  border-color: var(--naranja-claro);
-}
+.plans { background: var(--crema); }
+.plans-header { text-align: center; margin-bottom: 60px; }
+.plans-header h2 { margin: 0 auto 16px; }
+.plans-header .section-desc { margin: 0 auto; text-align: center; }
+.plans-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; max-width: 1000px; margin: 0 auto; }
+.plan-card { background: var(--blanco); border-radius: 8px; padding: 40px 32px; border: 1px solid rgba(0,0,0,0.08); transition: all 0.25s; position: relative; }
+.plan-card:hover { box-shadow: 0 12px 48px rgba(0,0,0,0.1); transform: translateY(-6px); }
+.plan-card.featured { background: var(--negro); border-color: var(--negro); }
+.plan-card.featured h3 { color: var(--blanco); }
+.plan-card.featured .plan-desc { color: rgba(255,255,255,0.6); }
+.plan-card.featured .plan-feature { color: rgba(255,255,255,0.7); border-bottom-color: rgba(255,255,255,0.08); }
+.featured-badge { position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: var(--naranja); color: var(--negro); font-size: 10px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; padding: 4px 16px; border-radius: 20px; white-space: nowrap; }
+.plan-icon { font-size: 36px; margin-bottom: 20px; display: block; }
+.plan-card h3 { font-family: 'Cormorant Garamond', serif; font-size: 28px; font-weight: 700; color: var(--negro); margin-bottom: 12px; }
+.plan-desc { font-size: 13px; color: var(--gris); line-height: 1.6; margin-bottom: 28px; min-height: 60px; }
+.plan-features { list-style: none; margin-bottom: 32px; }
+.plan-feature { font-size: 13px; color: var(--gris); padding: 8px 0; border-bottom: 1px solid rgba(0,0,0,0.05); display: flex; align-items: center; gap: 10px; }
+.plan-feature::before { content: '✓'; color: var(--naranja); font-weight: 600; flex-shrink: 0; }
+.plan-cta { display: block; text-align: center; padding: 14px; border-radius: 4px; font-size: 14px; font-weight: 500; text-decoration: none; transition: all 0.2s; border: 1.5px solid var(--negro); color: var(--negro); }
+.plan-cta:hover { background: var(--negro); color: var(--blanco); }
+.plan-card.featured .plan-cta { background: var(--naranja); border-color: var(--naranja); color: var(--negro); }
 
 /* TESTIMONIOS */
-.testimonials {
-  background: var(--blanco);
-}
-
-.testimonials-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
-  margin-top: 60px;
-}
-
-.testimonial-card {
-  background: var(--crema);
-  border-radius: 6px;
-  padding: 32px;
-  position: relative;
-}
-
-.testimonial-card::before {
-  content: '"';
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 80px;
-  color: var(--naranja);
-  opacity: 0.3;
-  position: absolute;
-  top: 10px;
-  left: 24px;
-  line-height: 1;
-}
-
-.testimonial-text {
-  font-size: 14px;
-  color: var(--negro);
-  line-height: 1.7;
-  margin-bottom: 24px;
-  padding-top: 28px;
-  font-style: italic;
-}
-
-.testimonial-author {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-
-.testimonial-avatar {
-  width: 40px;
-  height: 40px;
-  background: var(--negro);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 16px;
-  flex-shrink: 0;
-}
-
-.testimonial-name {
-  font-size: 14px;
-  font-weight: 500;
-  color: var(--negro);
-}
-
-.testimonial-role {
-  font-size: 12px;
-  color: var(--gris);
-}
-
-.testimonial-placeholder {
-  display: inline-block;
-  background: rgba(232,148,26,0.1);
-  border: 1px dashed rgba(232,148,26,0.4);
-  color: var(--naranja);
-  font-size: 10px;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  padding: 2px 8px;
-  border-radius: 3px;
-  margin-top: 4px;
-}
+.testimonials { background: var(--blanco); }
+.testimonials-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 60px; }
+.testimonial-card { background: var(--crema); border-radius: 6px; padding: 32px; position: relative; }
+.testimonial-card::before { content: '"'; font-family: 'Cormorant Garamond', serif; font-size: 80px; color: var(--naranja); opacity: 0.3; position: absolute; top: 10px; left: 24px; line-height: 1; }
+.testimonial-text { font-size: 14px; color: var(--negro); line-height: 1.7; margin-bottom: 24px; padding-top: 28px; font-style: italic; }
+.testimonial-author { display: flex; align-items: center; gap: 12px; }
+.testimonial-avatar { width: 40px; height: 40px; background: var(--negro); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 16px; flex-shrink: 0; }
+.testimonial-name { font-size: 14px; font-weight: 500; color: var(--negro); }
+.testimonial-role { font-size: 12px; color: var(--gris); }
+.testimonial-placeholder { display: inline-block; background: rgba(232,148,26,0.1); border: 1px dashed rgba(232,148,26,0.4); color: var(--naranja); font-size: 10px; letter-spacing: 1px; text-transform: uppercase; padding: 2px 8px; border-radius: 3px; margin-top: 4px; }
 
 /* CTA FINAL */
-.cta-section {
-  background: var(--negro);
-  text-align: center;
-  padding: 120px 60px;
-  position: relative;
-  overflow: hidden;
-}
-
-.cta-section::before {
-  content: '₿';
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  font-size: 500px;
-  color: rgba(232,148,26,0.04);
-  font-family: 'Cormorant Garamond', serif;
-  line-height: 1;
-  pointer-events: none;
-}
-
-.cta-section h2 {
-  color: var(--blanco);
-  font-size: clamp(40px, 5vw, 64px);
-  margin-bottom: 20px;
-  position: relative;
-}
-
-.cta-section h2 em {
-  color: var(--naranja);
-  font-style: normal;
-}
-
-.cta-section p {
-  color: rgba(255,255,255,0.5);
-  font-size: 16px;
-  margin-bottom: 44px;
-  position: relative;
-}
-
-.cta-form {
-  display: flex;
-  gap: 12px;
-  justify-content: center;
-  flex-wrap: wrap;
-  position: relative;
-}
-
-.cta-input {
-  padding: 16px 24px;
-  border-radius: 3px;
-  border: 1px solid rgba(255,255,255,0.15);
-  background: rgba(255,255,255,0.07);
-  color: var(--blanco);
-  font-size: 15px;
-  font-family: 'Outfit', sans-serif;
-  width: 300px;
-  outline: none;
-  transition: border-color 0.2s;
-}
-
+.cta-section { background: var(--negro); text-align: center; padding: 120px 60px; position: relative; overflow: hidden; }
+.cta-section::before { content: '₿'; position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); font-size: 500px; color: rgba(232,148,26,0.04); font-family: 'Cormorant Garamond', serif; line-height: 1; pointer-events: none; }
+.cta-section h2 { color: var(--blanco); font-size: clamp(40px, 5vw, 64px); margin-bottom: 20px; position: relative; }
+.cta-section h2 em { color: var(--naranja); font-style: normal; }
+.cta-section p { color: rgba(255,255,255,0.5); font-size: 16px; margin-bottom: 44px; position: relative; }
+.cta-form { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; position: relative; }
+.cta-input { padding: 16px 24px; border-radius: 3px; border: 1px solid rgba(255,255,255,0.15); background: rgba(255,255,255,0.07); color: var(--blanco); font-size: 15px; font-family: 'Outfit', sans-serif; width: 300px; outline: none; }
 .cta-input::placeholder { color: rgba(255,255,255,0.3); }
-.cta-input:focus { border-color: var(--naranja); }
-
-.cta-btn {
-  padding: 16px 32px;
-  background: var(--naranja);
-  color: var(--negro);
-  border: none;
-  border-radius: 3px;
-  font-size: 15px;
-  font-weight: 600;
-  font-family: 'Outfit', sans-serif;
-  cursor: pointer;
-  transition: all 0.2s;
-}
-
-.cta-btn:hover {
-  background: var(--naranja-claro);
-  transform: translateY(-2px);
-}
-
-.cta-note {
-  font-size: 12px;
-  color: rgba(255,255,255,0.3);
-  margin-top: 16px;
-  position: relative;
-}
+.cta-btn { padding: 16px 32px; background: var(--naranja); color: var(--negro); border: none; border-radius: 3px; font-size: 15px; font-weight: 600; font-family: 'Outfit', sans-serif; cursor: pointer; transition: all 0.2s; }
+.cta-note { font-size: 12px; color: rgba(255,255,255,0.3); margin-top: 16px; position: relative; }
 
 /* FOOTER */
-footer {
-  background: #060504;
-  padding: 48px 60px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border-top: 1px solid rgba(255,255,255,0.05);
-}
-
-.footer-logo {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 20px;
-  font-weight: 700;
-  color: rgba(255,255,255,0.8);
-  text-decoration: none;
-}
-
+footer { background: #060504; padding: 48px 60px; display: flex; justify-content: space-between; align-items: center; border-top: 1px solid rgba(255,255,255,0.05); }
+.footer-logo { font-family: 'Cormorant Garamond', serif; font-size: 20px; font-weight: 700; color: rgba(255,255,255,0.8); text-decoration: none; }
 .footer-logo span { color: var(--naranja); }
+.footer-links { display: flex; gap: 32px; list-style: none; }
+.footer-links a { color: rgba(255,255,255,0.35); text-decoration: none; font-size: 13px; }
+.footer-copy { font-size: 12px; color: rgba(255,255,255,0.2); }
 
-.footer-links {
-  display: flex;
-  gap: 32px;
-  list-style: none;
-}
-
-.footer-links a {
-  color: rgba(255,255,255,0.35);
-  text-decoration: none;
-  font-size: 13px;
-  transition: color 0.2s;
-}
-
-.footer-links a:hover { color: rgba(255,255,255,0.7); }
-
-.footer-copy {
-  font-size: 12px;
-  color: rgba(255,255,255,0.2);
-}
-
-/* ANIMACIONES DE ENTRADA */
-.reveal {
-  opacity: 1;
-  transform: translateY(0);
-  transition: opacity 0.6s ease, transform 0.6s ease;
-}
-
-.reveal.animate {
-  opacity: 0;
-  transform: translateY(24px);
-}
-
-.reveal.animate.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* RESPONSIVE BÁSICO */
+/* RESPONSIVE */
 @media (max-width: 900px) {
   nav { padding: 16px 24px; }
   .nav-links { display: none; }
@@ -845,7 +160,6 @@ footer {
 </head>
 <body>
 
-<!-- NAV -->
 <nav>
   <a href="#" class="nav-logo">Convierte<span>bit</span></a>
   <ul class="nav-links">
@@ -856,7 +170,6 @@ footer {
   </ul>
 </nav>
 
-<!-- HERO -->
 <section class="hero">
   <div class="hero-content">
     <div class="hero-badge">Consultoría Bitcoin para comercios</div>
@@ -883,58 +196,44 @@ footer {
   </div>
 </section>
 
-<!-- QUÉ ES -->
 <section class="about" id="que-es">
-  <div class="about-grid reveal">
+  <div class="about-grid">
     <div class="about-text">
       <p class="section-label">Qué es Conviertebit</p>
       <h2>Bitcoin en tu comercio,<br>sin complicaciones.</h2>
-      <p class="section-desc" style="margin-top:20px;">Conviertebit es una consultora especializada en ayudar a comercios españoles a aceptar pagos en Bitcoin. Nos encargamos de toda la integración técnica, la formación de tu equipo y el soporte continuo para que tú no tengas que preocuparte de nada.</p>
+      <p class="section-desc" style="margin-top:20px;">Conviertebit es una consultoría especializada en ayudar a comercios españoles a aceptar pagos en Bitcoin. Nos encargamos de toda la integración técnica, la formación de tu equipo y el soporte continuo.</p>
       <p class="section-desc" style="margin-top:16px;">Lo mejor: el dinero que recibes sigue siendo euros. Nosotros gestionamos la conversión de forma automática.</p>
     </div>
     <div class="about-cards">
       <div class="about-card">
         <span class="about-card-icon">🔧</span>
-        <div>
-          <h4>Instalación y configuración completa</h4>
-          <p>Nos encargamos de toda la parte técnica. Tú solo tienes que abrir el local.</p>
-        </div>
+        <div><h4>Instalación y configuración completa</h4><p>Nos encargamos de toda la parte técnica. Tú solo tienes que abrir el local.</p></div>
       </div>
       <div class="about-card">
         <span class="about-card-icon">👥</span>
-        <div>
-          <h4>Formación para tu equipo</h4>
-          <p>Formamos a tu personal para que cualquiera pueda gestionar los cobros sin problemas.</p>
-        </div>
+        <div><h4>Formación para tu equipo</h4><p>Formamos a tu personal para que cualquiera pueda gestionar los cobros sin problemas.</p></div>
       </div>
       <div class="about-card">
         <span class="about-card-icon">📊</span>
-        <div>
-          <h4>Informes y seguimiento mensual</h4>
-          <p>Recibirás un informe cada mes con todos los cobros recibidos por esta vía.</p>
-        </div>
+        <div><h4>Informes y seguimiento mensual</h4><p>Recibirás un informe cada mes con todos los cobros recibidos por esta vía.</p></div>
       </div>
       <div class="about-card">
         <span class="about-card-icon">🛟</span>
-        <div>
-          <h4>Soporte directo siempre disponible</h4>
-          <p>Una persona real que conoce tu instalación y te responde cuando lo necesitas.</p>
-        </div>
+        <div><h4>Soporte directo siempre disponible</h4><p>Una persona real que conoce tu instalación y te responde cuando lo necesitas.</p></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- CÓMO FUNCIONA -->
 <section class="how" id="como-funciona">
-  <div class="how-header reveal">
+  <div class="how-header">
     <div>
       <p class="section-label">Cómo funciona</p>
       <h2>Tan sencillo como cobrar con tarjeta.</h2>
     </div>
-    <p class="section-desc">Cinco pasos simples. Tu equipo los aprende en diez minutos. Los clientes lo ven como cualquier otro pago moderno.</p>
+    <p class="section-desc">Cinco pasos simples. Tu equipo los aprende en diez minutos.</p>
   </div>
-  <div class="steps reveal">
+  <div class="steps">
     <div class="step">
       <div class="step-circle">1</div>
       <h4>Cierras el ticket como siempre</h4>
@@ -963,13 +262,12 @@ footer {
   </div>
 </section>
 
-<!-- BENEFICIOS -->
 <section class="benefits" id="beneficios">
-  <div class="reveal" style="text-align:center; margin-bottom:60px;">
+  <div style="text-align:center; margin-bottom:60px;">
     <p class="section-label">Por qué Conviertebit</p>
     <h2>Una nueva vía de cobro.<br>Sin riesgos.</h2>
   </div>
-  <div class="benefits-grid reveal">
+  <div class="benefits-grid">
     <div class="benefit-card">
       <span class="benefit-icon">🌍</span>
       <h3>Abre tu negocio al mundo</h3>
@@ -988,29 +286,28 @@ footer {
     <div class="benefit-card">
       <span class="benefit-icon">🔄</span>
       <h3>Siempre en euros</h3>
-      <p>No necesitas saber nada sobre Bitcoin. La conversión es automática y los euros llegan a tu banco el mismo día. Como siempre.</p>
+      <p>No necesitas saber nada sobre Bitcoin. La conversión es automática y los euros llegan a tu banco el mismo día.</p>
     </div>
     <div class="benefit-card">
       <span class="benefit-icon">📱</span>
       <h3>Sin cambiar nada</h3>
-      <p>Tu TPV actual sigue funcionando igual. Bitcoin es una opción adicional para quienes la prefieran, no un reemplazo de lo que ya tienes.</p>
+      <p>Tu TPV actual sigue funcionando igual. Bitcoin es una opción adicional, no un reemplazo de lo que ya tienes.</p>
     </div>
     <div class="benefit-card">
       <span class="benefit-icon">💡</span>
       <h3>Elige cómo cobrar</h3>
-      <p>Por defecto recibes euros, pero si quieres conservar parte del cobro en Bitcoin también es posible. Tú decides según tus objetivos.</p>
+      <p>Por defecto recibes euros, pero si quieres conservar parte del cobro en Bitcoin también es posible. Tú decides.</p>
     </div>
   </div>
 </section>
 
-<!-- PLANES -->
 <section class="plans" id="planes">
-  <div class="plans-header reveal">
+  <div class="plans-header">
     <p class="section-label">Planes</p>
     <h2>El plan adecuado<br>para cada comercio.</h2>
     <p class="section-desc">Tres niveles de servicio según el control y la autonomía que quieras. Todos incluyen la conversión automática a euros.</p>
   </div>
-  <div class="plans-grid reveal">
+  <div class="plans-grid">
     <div class="plan-card">
       <span class="plan-icon">⚡</span>
       <h3>Satoshi</h3>
@@ -1028,7 +325,7 @@ footer {
       <span class="featured-badge">Más popular</span>
       <span class="plan-icon">🔥</span>
       <h3>Lightning</h3>
-      <p class="plan-desc">Para comercios que quieren gestionar su propio panel y tener visibilidad total de sus cobros.</p>
+      <p class="plan-desc">Para comercios que quieren gestionar su propio panel y tener visibilidad total.</p>
       <ul class="plan-features">
         <li class="plan-feature">Todo lo del plan Satoshi</li>
         <li class="plan-feature">Acceso a tu panel de gestión</li>
@@ -1054,15 +351,14 @@ footer {
   </div>
 </section>
 
-<!-- TESTIMONIOS -->
 <section class="testimonials">
-  <div class="reveal" style="text-align:center; margin-bottom:16px;">
+  <div style="text-align:center; margin-bottom:60px;">
     <p class="section-label">Testimonios</p>
     <h2>Lo que dicen<br>nuestros clientes.</h2>
   </div>
-  <div class="testimonials-grid reveal">
+  <div class="testimonials-grid">
     <div class="testimonial-card">
-      <p class="testimonial-text">Llevaba tiempo queriendo aceptar Bitcoin pero no sabía por dónde empezar. Conviertebit lo configuró todo en un día y mi equipo aprendió a usarlo en diez minutos. Ahora cobro a turistas que antes se iban sin pagar porque no llevaban efectivo.</p>
+      <p class="testimonial-text">Llevaba tiempo queriendo aceptar Bitcoin pero no sabía por dónde empezar. Conviertebit lo configuró todo en un día y mi equipo aprendió a usarlo en diez minutos.</p>
       <div class="testimonial-author">
         <div class="testimonial-avatar">🍕</div>
         <div>
@@ -1073,7 +369,7 @@ footer {
       </div>
     </div>
     <div class="testimonial-card">
-      <p class="testimonial-text">Lo que más me convenció fue que los euros llegan a mi banco igual que siempre. No tuve que aprender nada sobre criptomonedas ni cambiar mi forma de trabajar. Solo añadí una opción más de pago para mis clientes.</p>
+      <p class="testimonial-text">Lo que más me convenció fue que los euros llegan a mi banco igual que siempre. No tuve que aprender nada sobre criptomonedas ni cambiar mi forma de trabajar.</p>
       <div class="testimonial-author">
         <div class="testimonial-avatar">☕</div>
         <div>
@@ -1084,7 +380,7 @@ footer {
       </div>
     </div>
     <div class="testimonial-card">
-      <p class="testimonial-text">Tengo una tienda de electrónica y muchos de mis clientes ya usaban Bitcoin. Desde que lo implementamos con Conviertebit hemos tenido ventas que antes perdíamos. El soporte es excelente, siempre responden rápido.</p>
+      <p class="testimonial-text">Tengo una tienda de electrónica y muchos de mis clientes ya usaban Bitcoin. Desde que lo implementamos con Conviertebit hemos tenido ventas que antes perdíamos.</p>
       <div class="testimonial-author">
         <div class="testimonial-avatar">💻</div>
         <div>
@@ -1097,31 +393,27 @@ footer {
   </div>
 </section>
 
-<!-- CTA FINAL -->
 <section class="cta-section" id="contacto">
   <h2>¿Listo para<br><em>dar el paso?</em></h2>
   <p>Cuéntanos sobre tu negocio y te explicamos sin compromiso cómo podemos ayudarte.</p>
   <div class="cta-form">
-    <input type="email" class="cta-input" placeholder="tu@email.com">
-    <button class="cta-btn" onclick="window.location.href='mailto:hola@conviertebit.es?subject=Quiero saber más sobre Conviertebit'">Contactar ahora</button>
+    <input type="email" class="cta-input" placeholder="tu email">
+    <button class="cta-btn" onclick="window.location.href='mailto:hola' + '@' + 'conviertebit.es?subject=Quiero saber más sobre Conviertebit'">Contactar ahora</button>
   </div>
-  <p class="cta-note">O escríbenos directamente a <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="bad2d5d6dbfad9d5d4ccd3dfc8cedfd8d3ce94dfc9">[email&#160;protected]</a></p>
+  <p class="cta-note"><span id="email-footer"></span></p>
 </section>
 
-<!-- FOOTER -->
 <footer>
   <a href="#" class="footer-logo">Convierte<span>bit</span></a>
   <ul class="footer-links">
     <li><a href="#como-funciona">Cómo funciona</a></li>
     <li><a href="#planes">Planes</a></li>
-    <li><a href="/cdn-cgi/l/email-protection#3d5552515c7d5e52534b54584f49585f544913584e">Contacto</a></li>
+    <li><a href="#contacto">Contacto</a></li>
   </ul>
   <p class="footer-copy">© 2025 Conviertebit · Cobra en Bitcoin. Recibe en euros.</p>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-// Animaciones de entrada al hacer scroll
-const observer = new Inters
+<script>document.getElementById('email-footer').innerHTML = 'O escríbenos directamente a <a href="mailto:' + 'hola' + '@' + 'conviertebit.es' + '" style="color:rgba(255,255,255,0.5)">' + 'hola' + '@' + 'conviertebit.es</a>';</script>
 <!--Start of Tawk.to Script-->
 <script type="text/javascript">
 var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
@@ -1135,5 +427,6 @@ s0.parentNode.insertBefore(s1,s0);
 })();
 </script>
 <!--End of Tawk.to Script-->
+
 </body>
 </html>
